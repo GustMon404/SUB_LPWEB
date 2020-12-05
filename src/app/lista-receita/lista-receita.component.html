@@ -1,0 +1,8 @@
+<ul *ngFor = "let receita of lista_receita">
+    <li>
+        {{receita.titulo}}
+        <button (click) = "detalhes(receita)"> Detalhes</button>
+        <button (click) = "editar(receita)"> Editar</button>
+        <button (click) = "deletar(receita)"> Deletar</button>
+    </li>
+</ul>

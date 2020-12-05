@@ -1,0 +1,35 @@
+<form #cadastro="ngForm" (submit)="salvar()">
+    <label for="titulo">Titulo</label>
+    <input type="text" id="titulo" name="titulo" [(ngModel)] = "titulo">
+
+    <label for="tipo">Tipo</label>
+    <select type="text" id="tipo" name="tipo" [(ngModel)] = "tipo">
+        <option value="CM">Café da Manha</option>
+4
+        <option value="JA">Jantar</option>
+5
+        <option value="AM">Almoço</option>
+
+    </select>
+
+    <label for="tempo">Tempo de preparo</label>
+    <input type="text" id="tempo" name="tempo" [(ngModel)] = "tempo">
+
+    <label for="rendimento">Rendimento</label>
+    <input type="text" id="rendimento" name="rendimento" [(ngModel)] = "rendimento">
+
+    <label for="ingredientes">Ingredientes</label>
+    <textarea type="text" id="ingredientes" name="ingredientes" [(ngModel)] = "ingredientes"></textarea>
+
+    <label for="preparo">Modo de Preparo</label>
+    <input type="text" id="preparo" name="preparo" [(ngModel)] = "preparo">
+
+    <label for="publica">Pública</label>
+    <input type="checkbox" [checked]="publica == true" (click)="publico()">
+
+    <button type="submit">Salvar</button>
+</form>
+
+<app-lista-receita (editar_receita)= editar($event)>
+
+</app-lista-receita>
