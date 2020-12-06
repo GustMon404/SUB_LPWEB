@@ -24,6 +24,11 @@ export class DetalheReceitaComponent implements OnInit {
   publica: boolean;
 
   ngOnInit(): void {
+    this.detalhes()
+    
+  }
+
+  detalhes(){
     const id = this.route.snapshot.paramMap.get('id')
     //receita nao aceitando receber receitas diretamente
     this.ingredientesService.encontrar(id).subscribe((receitas: Receitas)=> {
@@ -31,13 +36,12 @@ export class DetalheReceitaComponent implements OnInit {
       this.ingredientes = receitas.ingredientes, this.modo_preparo = receitas.modo_preparo, this.publica = receitas.publica, this.receita = receitas
       /*this.receita = new Receitas(receitas.titulo, receitas.tipo, receitas.tempo_preparo, receitas.rendimento, receitas.ingredientes,
       receitas.modo_preparo, receitas.publica)*/
-      
     })
   }
 
   publicar(receita){
     receita.publica = true
-    this.ingredientesService.publicar(receita).subscribe();
+    this.ingredientesService.publicar(receita).subscribe(() => this.detalhes());
   }
 
 
