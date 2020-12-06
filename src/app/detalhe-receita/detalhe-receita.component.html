@@ -1,11 +1,26 @@
-<p>detalhe-works!</p>
-<p>{{titulo}}</p>
-<p>{{tipo}}</p>
-<p>{{tempo_preparo}}</p>
-<p>{{rendimento}}</p>
-<p>{{ingredientes}}</p>
-<p>{{modo_preparo}}</p>
+<div class="container">
+    <h1>Detalhes de Receita</h1>
+     <div class="card">
+         <div class="card-header">
+             <strong>
+                {{titulo}}
+             </strong>
+         </div>
+         <div class="card-body">
+            <p *ngIf="tipo == 'CM'" class="card-text">Tipo: Café da Manha</p>
+            <p *ngIf="tipo == 'JA'" class="card-text">Tipo: Jantar</p>
+            <p *ngIf="tipo == 'AM'" class="card-text">Tipo: Almoço</p>
+            <br>
+            <p class="card-text">
+                Tempo de Preparo: {{tempo_preparo}}<br>
+                Porção: {{rendimento}}<br>
+                Ingredientes: {{ingredientes}}<br>
+                Modo de preparo: {{modo_preparo}}<br>
+            </p>
 
-<div *ngIf= "publica == false">
-    <button (click)=publicar(receita)>publicar</button>
+            <div *ngIf= "publica == false">
+                <a class="btn btn-primary" (click)=publicar(receita)>publicar</a>
+            </div>
+         </div>
+     </div>
 </div>

@@ -1,34 +1,55 @@
-<form #cadastro="ngForm" (submit)="salvar()">
-    <label for="titulo">Titulo</label>
-    <input type="text" id="titulo" name="titulo" [(ngModel)] = "titulo">
+<div class="jumbotron">
+    <h1>Formulário Receitas</h1>
+    <div class="container">
+        <form #cadastro="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="titulo">Titulo</label>
+                    <input class="form-control" type="text" id="titulo" name="titulo" [(ngModel)] = "titulo">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="tipo">Tipo</label>
+                    <select type="text" id="tipo" name="tipo" [(ngModel)] = "tipo" class="form-control">
+                        <option value="CM">Café da Manha</option>
+                        <option value="JA">Jantar</option>
+                        <option value="AM">Almoço</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="tempo">Tempo de preparo</label>
+                    <input class="form-control" type="text" id="tempo" name="tempo" [(ngModel)] = "tempo">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="rendimento">Rendimento</label>
+                    <input class="form-control" type="text" id="rendimento" name="rendimento" [(ngModel)] = "rendimento">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ingredientes">Ingredientes</label>
+                <textarea class="form-control" type="text" id="ingredientes" name="ingredientes" [(ngModel)] = "ingredientes"></textarea>
+            </div>
 
-    <label for="tipo">Tipo</label>
-    <select type="text" id="tipo" name="tipo" [(ngModel)] = "tipo">
-        <option value="CM">Café da Manha</option>
-4
-        <option value="JA">Jantar</option>
-5
-        <option value="AM">Almoço</option>
+            <div class="form-group">
+                <label for="preparo">Modo de Preparo</label>
+                <input class="form-control" type="text" id="preparo" name="preparo" [(ngModel)] = "preparo">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [checked]="publica == true" (click)="publico()">
+                    <label class="form-check-label" for="publica">Pública</label>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" (click)=salvar()>Salvar</button>
+            <button class="btn btn-secondary" (click)=cancelar()>Cancelar</button>
 
-    </select>
+        </form>
+    </div>
+</div>
 
-    <label for="tempo">Tempo de preparo</label>
-    <input type="text" id="tempo" name="tempo" [(ngModel)] = "tempo">
 
-    <label for="rendimento">Rendimento</label>
-    <input type="text" id="rendimento" name="rendimento" [(ngModel)] = "rendimento">
-
-    <label for="ingredientes">Ingredientes</label>
-    <textarea type="text" id="ingredientes" name="ingredientes" [(ngModel)] = "ingredientes"></textarea>
-
-    <label for="preparo">Modo de Preparo</label>
-    <input type="text" id="preparo" name="preparo" [(ngModel)] = "preparo">
-
-    <label for="publica">Pública</label>
-    <input type="checkbox" [checked]="publica == true" (click)="publico()">
-
-    <button type="submit">Salvar</button>
-</form>
 
 <app-lista-receita (editar_receita)= editar($event)>
 

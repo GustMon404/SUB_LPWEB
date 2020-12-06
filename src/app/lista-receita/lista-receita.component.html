@@ -1,8 +1,11 @@
-<ul *ngFor = "let receita of lista_receita">
-    <li>
-        {{receita.titulo}}
-        <button (click) = "detalhes(receita)"> Detalhes</button>
-        <button (click) = "editar(receita)"> Editar</button>
-        <button (click) = "deletar(receita)"> Deletar</button>
-    </li>
-</ul>
+<div class="container">
+    <div *ngFor = "let receita of lista_receita" class="row">
+        <div class="col-md-4">
+            <h2>{{receita.titulo}}</h2>
+            <p>{{receita.ingredientes}}</p>
+            <a class="btn btn-secondary" (click) = "detalhes(receita)" role="button"> Detalhes</a>
+            <a class="btn btn-warning" (click) = "editar(receita)" role="button">Editar</a>
+            <a class="btn btn-danger" (click) = "deletar(receita)"role="button">Excluir</a>
+        </div>
+    </div>
+</div>

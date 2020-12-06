@@ -49,7 +49,7 @@ export class CadastroReceitaComponent implements OnInit {
     }
     else{
       let receita = new Receitas(this.titulo, this.tipo, this.tempo, this.rendimento, this.ingredientes, this.preparo, this.publica)
-      this.ingredientesService.salvar(receita).subscribe()
+      this.ingredientesService.salvar(receita).subscribe( () => this.lista.atualizar_lista() )
     }
     this.titulo = null;
     this.tipo = null;
@@ -77,6 +77,18 @@ export class CadastroReceitaComponent implements OnInit {
     this.publica = receita.publica;
 
     this.receita_editando = receita
+  }
+
+  cancelar(){
+    this.titulo = null;
+    this.tipo = null;
+    this.tempo = null;
+    this.rendimento = null;
+    this.ingredientes = null;
+    this.preparo = null;
+    this.publica = false;
+  
+    this.receita_editando = null;
   }
 
 }

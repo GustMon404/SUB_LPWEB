@@ -33,7 +33,7 @@ export class ListaReceitaComponent implements OnInit {
   
   deletar(receita){
     if(confirm("deseja excluir ?")){
-      this.ingredientesService.deletar(receita).subscribe(()=> {alert('sucesso')}, error => {alert("Não é possivel apagar essa receita")});
+      this.ingredientesService.deletar(receita).subscribe(()=> {alert('sucesso'), this.atualizar_lista()}, error => {alert("Não é possivel apagar essa receita")});
     }
   }
 
